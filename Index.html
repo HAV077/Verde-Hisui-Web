@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verde Hisui - Ropa, accesorios y bolsos elegantes con un toque único.">
+    <title>Verde Hisui - Moda con Estilo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="glass-effect">
+        <div class="logo">
+            <h1>Verde Hisui</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#bolsos">Bolsos</a></li>
+                <li><a href="#accesorios">Accesorios</a></li>
+                <li><a href="#ropa">Ropa</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-text">
+            <h2>Elegancia, Distinción y Estilo</h2>
+            <p>Bienvenido a Verde Hisui, donde cada pieza está diseñada para reflejar tu esencia. Bolsos, ropa y accesorios que capturan la belleza del jade.</p>
+            <a href="#bolsos" class="cta-button">Descubre la Colección</a>
+        </div>
+    </section>
+
+    <section id="bolsos" class="category-section fade-in">
+        <h2>Bolsos</h2>
+        <p>Encuentra el bolso perfecto, inspirado en la belleza y la serenidad del jade. Elegancia y funcionalidad combinadas.</p>
+        <div class="gallery">
+            <!-- Aquí puedes añadir imágenes de los bolsos -->
+            <img src="bolso1.jpg" alt="Bolso elegante">
+            <img src="bolso2.jpg" alt="Bolso casual">
+            <img src="bolso3.jpg" alt="Bolso práctico">
+        </div>
+    </section>
+
+    <section id="accesorios" class="category-section fade-in">
+        <h2>Accesorios</h2>
+        <p>Complementos exclusivos para un look sofisticado. Cada accesorio añade un toque distintivo.</p>
+        <div class="gallery">
+            <!-- Añade imágenes de accesorios -->
+            <img src="accesorio1.jpg" alt="Accesorio elegante">
+            <img src="accesorio2.jpg" alt="Accesorio moderno">
+        </div>
+    </section>
+
+    <section id="ropa" class="category-section fade-in">
+        <h2>Ropa</h2>
+        <p>Diseños exclusivos que reflejan tu estilo y personalidad. Ropa con un toque de elegancia y comodidad.</p>
+        <div class="gallery">
+            <!-- Añade imágenes de la ropa -->
+            <img src="ropa1.jpg" alt="Ropa elegante">
+            <img src="ropa2.jpg" alt="Ropa cómoda">
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>Contacto: <a href="mailto:contacto@verdehisui.com">contacto@verdehisui.com</a></p>
+        <p>Síguenos en <a href="https://instagram.com/verdehisui" target="_blank">Instagram</a></p>
+        <p>&copy; 2024 Verde Hisui</p>
+    </footer>
+
+    <script>
+        // Animaciones de scroll suave para las secciones
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Interactividad y efecto de fade-in
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.3
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+                  </html>
